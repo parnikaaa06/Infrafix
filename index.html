@@ -1,0 +1,322 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>InfraFix — Smart Suggestions for City Improvement</title>
+  <meta name="description" content="InfraFix: citizens suggest improvements; AI previews; voting; city responses. CSS-only prototype." />
+  <link rel="icon" type="image/png" href="images/Favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2024.10.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.10.1/core.js"></script> -->
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" role="banner" aria-label="InfraFix header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">IF</div>
+        <div class="brand-text">
+          <h1>InfraFix</h1>
+          <p class="muted">Smart suggestions for city improvement</p>
+        </div>
+      </div>
+
+     
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+      <label for="nav-toggle" class="hamburger" aria-hidden="false" title="Toggle menu" role="button" tabindex="0">
+        <span></span>
+      </label>
+
+      <nav class="main-nav" role="navigation" aria-label="Primary">
+        <ul class="nav-links" role="menubar">
+          <li role="none"><a role="menuitem" href="#hero">Home</a></li>
+          <li role="none"><a role="menuitem" href="#map">Map</a></li>
+          <li role="none"><a role="menuitem" href="#ai-visuals">AI Visuals</a></li>
+          <li role="none"><a role="menuitem" href="#suggestions">Suggestions</a></li>
+          <li role="none"><a role="menuitem" href="#profiles">Community</a></li>
+          <li role="none"><a role="menuitem" href="#success">Success</a></li>
+          <li role="none"><a role="menuitem" class="cta" href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <p class="eyebrow">Citizen-powered • AI previews • Transparent outcomes</p>
+        <h2 id="hero-title" class="hero-title">InfraFix — Smart Suggestions for City Improvement</h2>
+        <p class="hero-sub">Bridge the gap between citizens and city planners: report issues, preview improvements with an AI mockup, vote and track progress.</p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#upload" role="button">Suggest an Improvement</a>
+          <a class="btn outline" href="#map" role="button">Explore Map</a>
+        </div>
+
+        <div class="stat-row" aria-hidden="false">
+          <div class="stat"><strong>12,341</strong><span>suggestions</span></div>
+          <div class="stat"><strong>2,128</strong><span>resolved</span></div>
+          <div class="stat"><strong>34</strong><span>cities</span></div>
+        </div>
+
+        <ul class="sample-list" aria-hidden="false">
+          <li><strong>Broken lamp on Willow St.</strong> — Pending</li>
+          <li><strong>Pothole near Central Market</strong> — In Progress</li>
+          <li><strong>Community garden request — Block 4</strong> — Verified</li>
+        </ul>
+      </div>
+
+      <div class="hero-right" aria-hidden="false">
+    
+        <div class="mockup">
+          <div class="ba-wrap" tabindex="0" aria-label="Before and after preview. Hover or focus to see after image.">
+            
+            <div class="ba-image before" role="img" aria-label="Before: park area with litter" style="background-image:url('images/hero-before.png')"></div>
+           
+            <div class="ba-image after" role="img" aria-label="After: cleaned park with benches" style="background-image:url('images/hero-after.jpg')"></div>
+
+            <div class="ba-labels" aria-hidden="false">
+              <div class="label">Before</div>
+              <div class="label after-label">After</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    
+    <section id="map" class="map-card" aria-labelledby="map-heading" role="region">
+      <div class="section-head">
+        <h3 id="map-heading">Interactive Map Mockup</h3>
+      </div>
+
+      <div class="map-body" role="application" aria-label="Map showing suggestions (mock)">
+      
+        <div class="map-bg" style="background-image:url('images/map-bg.png')"></div>
+
+        <div class="pin" style="left:22%;top:30%">
+          <span class="
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.38 0 2.5 1.12 2.5 2.5V7h-5V4.5C9.5 3.12 10.62 2 12 2z" fill="#0ea5a0"/></svg>
+        </div>
+        <div class="tooltip" style="left:24%;top:30%">Broken lamp — Willow St.<br><span class="muted small">2 days ago</span></div>
+
+        <div class="pin" style="left:56%;top:45%">
+          <span class="pulse" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7" fill="#f59e0b"/></svg>
+        </div>
+        <div class="tooltip" style="left:58%;top:45%">Pothole — Central Market<br><span class="muted small">5 days ago</span></div>
+
+        <div class="pin" style="left:72%;top:22%">
+          <span class="pulse" aria-hidden="true"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2 7h-4l2-7z" fill="#34d399"/></svg>
+        </div>
+        <div class="tooltip" style="left:74%;top:22%">Park cleanup — Nehru Park<br><span class="muted small">1 day ago</span></div>
+      </div>
+
+      <div class="map-legend" aria-hidden="false">
+        <div class="legend-item"><svg width="12" height="12"><circle cx="6" cy="6" r="6" fill="#0ea5a0"/></svg> Streetlight</div>
+        <div class="legend-item"><svg width="12" height="12"><circle cx="6" cy="6" r="6" fill="#f59e0b"/></svg> Pothole</div>
+        <div class="legend-item"><svg width="12" height="12"><circle cx="6" cy="6" r="6" fill="#34d399"/></svg> Park</div>
+      </div>
+    </section>
+
+    
+    <section id="ai-visuals" class="ai-section" aria-labelledby="ai-heading">
+  <h3 id="ai-heading">AI-Generated Visual Suggestions</h3>
+
+  <div class="ai-grid">
+    <div class="ai-left">
+      <p>Upload a photo of a location and get an AI-improved preview.</p>
+      <form class="upload-form" enctype="multipart/form-data" aria-label="Upload photo for AI preview">
+        <label for="image-upload" class="label">Choose an image to preview (jpg, png)</label>
+        <input id="image-upload" name="image" type="file" accept="image/*" aria-describedby="upload-note">
+
+        <p id="upload-note" class="muted small">After upload, the AI will generate a 'Before/After' preview.</p>
+
+        <div class="upload-actions">
+          <button type="button" id="preview-btn" class="btn primary">Preview AI Improvement</button>
+          <a href="#modal" class="btn outline" role="button">Submit Suggestion</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="ai-right" id="preview" tabindex="0" aria-live="polite" aria-atomic="true">
+      <div class="ai-preview" role="img" aria-label="AI preview area">
+
+        <div class="preview-before" aria-hidden="false">
+          <span class="visually-hidden">Before preview image</span>
+        </div>
+        <div class="preview-after" aria-hidden="true">
+          <span class="visually-hidden">After preview image</span>
+        </div>
+
+        <div class="preview-labels">
+          <span class="label">Before</span>
+          <span class="label after-label">After</span>
+        </div>
+        <p class="muted small">Tip: Hover / focus the preview to crossfade Before → After (CSS-only).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section id="suggestions" class="priority-card" aria-labelledby="priority-heading">
+      <h3 id="priority-heading">Voting & Prioritization</h3>
+
+      <div class="vote-controls">
+        <div class="vote-btn" role="button" tabindex="0" aria-pressed="false">▲ Upvote</div>
+        <div class="vote-btn" role="button" tabindex="0" aria-pressed="false">▼ Downvote</div>
+        <div class="muted small" style="margin-left:auto"></div>
+      </div>
+
+      <div class="priority-meter" role="img" aria-label="Priority meter showing 68%">
+        <i style="width:68%"></i>
+      </div>
+
+      <div class="top-suggestions">
+        <h4>Top Suggestions</h4>
+        <div class="suggestion-item">
+          <div><strong>Broken lamp on GST St.</strong><div class="muted small">Jul 28 • 24 votes</div></div>
+          <div class="badge">Lighting</div>
+        </div>
+        <div class="suggestion-item">
+          <div><strong>Pothole near Central Market</strong><div class="muted small">Jul 24 • 17 votes</div></div>
+          <div class="badge">Road</div>
+        </div>
+        <div class="suggestion-item">
+          <div><strong>Community garden request — Block 4</strong><div class="muted small">Jul 20 • 12 votes</div></div>
+          <div class="badge">Environment</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="timeline-heading" class="timeline-section">
+      <h3 id="timeline-heading">City Responds & Timeline</h3>
+      <ol class="timeline" role="list">
+        <li class="timeline-item"><span class="node"></span><div><strong>Pending</strong><div class="muted small">54 items awaiting review</div></div></li>
+        <li class="timeline-item"><span class="node"></span><div><strong>In Progress</strong><div class="muted small">18 items currently being fixed</div></div></li>
+        <li class="timeline-item"><span class="node"></span><div><strong>Verified</strong><div class="muted small">9 items inspected</div></div></li>
+        <li class="timeline-item"><span class="node"></span><div><strong>Resolved</strong><div class="muted small">2,128 completed</div></div></li>
+      </ol>
+    </section>
+
+    <section id="profiles" aria-labelledby="profiles-heading" class="profiles-section">
+      <h3 id="profiles-heading">User Profiles & Gamification</h3>
+      <div class="profile-grid" role="list">
+        <article class="profile-card" role="listitem" tabindex="0" aria-label="Profile anjali_dev">
+          <div class="flip">
+            <div class="flip-front">
+           
+              <img src="images/avatar-anjali.png" alt="Avatar of anjali_dev" class="avatar">
+              <h4>anjali_dev</h4>
+              <div class="muted small">Impact: 128</div>
+              <div class="badges"><span class="badge">Top Reporter</span></div>
+            </div>
+            <div class="flip-back">
+              <h4>Contributions</h4>
+              <div class="muted small">12 suggestions • 9 verified • 3 resolved</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="profile-card" role="listitem" tabindex="0" aria-label="Profile raj_user">
+          <div class="flip">
+            <div class="flip-front">
+              <img src="images/avatar-raj.png" alt="Avatar of raj_user" class="avatar">
+              <h4>raj_user</h4>
+              <div class="muted small">Impact: 96</div>
+              <div class="badges"><span class="badge">Community Builder</span></div>
+            </div>
+            <div class="flip-back">
+              <h4>Contributions</h4>
+              <div class="muted small">9 suggestions • 5 verified</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="success" aria-labelledby="success-heading" class="success-section">
+      <h3 id="success-heading">Success Stories Gallery</h3>
+      <div class="gallery">
+        <figure class="gallery-item">
+          
+          <img src="images/success-elmpark.jpg" alt="Elm Park after cleanup">
+          <figcaption>Nehru Park — Community cleanup and new benches</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/success-willow.jpg" alt="Willow St LED lighting">
+          <figcaption>GST Street — LED lighting reassembled</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="images/success-market.jpg" alt="Market road resurfaced">
+          <figcaption>Central Market — Organized Stalls</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    
+    <footer class="site-footer" role="contentinfo" aria-label="Footer">
+      <div class="footer-grid">
+        <div>
+          <strong>InfraFix</strong>
+          <p class="muted small">Connecting citizens and city planners with transparent, data-driven civic improvements.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#contact">Contact</a>
+          <a href="#faq">FAQ</a>
+          <a href="#privacy">Privacy</a>
+          <a href="signup.html">Sign up</a>
+        </div>
+        <div class="lang-select">
+          <label for="lang" class="visually-hidden">Language</label>
+          <select id="lang" aria-label="Select language">
+            <option value="en">English</option>
+            <option value="hi">हिंदी</option>
+            <option value="mr">தமிழ்</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="small muted">© InfraFix — Prototype. AI previews are illustrative. Replace with live data & endpoints.</div>
+    </footer>
+    <a id="modal" class="visually-hidden" aria-hidden="true"></a>
+    <div class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+      <div class="modal-panel">
+        <a class="modal-close" href="#main" aria-label="Close">✕</a>
+        <h3 id="modal-title">Submit Suggestion (Demo)</h3>
+        <p class="muted small">This modal is CSS-only. Replace with real form action to submit to your backend (e.g., POST /api/suggestions).</p>
+
+        <form class="modal-form" action="#" method="post" enctype="multipart/form-data" aria-label="Submit suggestion">
+          <label for="s-title">Title</label>
+          <input id="s-title" name="title" type="text" placeholder="Broken lamp on Willow St." required>
+
+          <label for="s-desc">Description</label>
+          <textarea id="s-desc" name="description" rows="4" placeholder="Describe the issue and suggested improvement"></textarea>
+
+          <label for="s-photo">Photo (optional)</label>
+          <input id="s-photo" name="photo" type="file" accept="image/*">
+
+          <div class="modal-actions">
+            <button class="btn primary" type="submit">Submit (mock)</button>
+            <a class="btn outline" href="#main">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+  <script src="script.js"></script>
+  <!-- <py-script src="main.py"/> -->
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign up — InfraFix</title>
+  <meta name="description" content="Create an InfraFix account" />
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#signup-form" class="skip-link">Skip to sign up</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo">IF</div>
+        <div class="brand-text">
+          <h1>InfraFix</h1>
+          <p class="muted">Join the civic community</p>
+        </div>
+      </div>
+      <nav class="simple-nav" aria-label="utility">
+        <a href="index.html">Home</a>
+        <a href="login.html" class="cta">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="auth-container" id="signup-form" role="main" aria-labelledby="signup-title">
+    <section class="auth-card" aria-labelledby="signup-title" role="form">
+      <h2 id="signup-title">Create an account</h2>
+      <p class="muted small">Sign up to suggest improvements and follow projects in your city.</p>
+
+      <form action="#" method="post" class="auth-form" novalidate>
+        <label for="full-name">Full name</label>
+        <input id="full-name" name="name" type="text" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+
+        <label for="new-password">Password</label>
+        <input id="new-password" name="password" type="password" required>
+
+        <label for="confirm-password">Confirm password</label>
+        <input id="confirm-password" name="confirm" type="password" required>
+
+        <div class="auth-actions">
+          <button class="btn primary" type="submit">Create account</button>
+          <a class="btn outline" href="login.html">Already have an account?</a>
+        </div>
+
+        <p class="muted small" style="margin-top:8px">By creating an account you agree to our <a href="index.html#privacy">Terms</a> and <a href="index.html#privacy">Privacy Policy</a>.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="small muted">© InfraFix — Prototype. <a href="index.html#privacy">Privacy</a> • <a href="index.html#faq">FAQ</a></div>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+</html>
